@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'hatim'
+      MYSQL_DATABASE: php-database
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+  php:
+    build: ./php
+    container_name: php
+    working_dir: /var/www/html
+    volumes:
+      - ./php:/var/www/html
+    networks:
+      - app-network
+    depends_on: 
+      - mysql
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./php:/var/www/html
+      - ./nginx/ssl:/etc/ssl/certs:ro
+    networks:
+      - app-network
+    depends_on:
+      - php
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
