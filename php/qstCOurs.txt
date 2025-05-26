@@ -1,0 +1,5 @@
+-> echo n'a pas de valeur de retour, tandis que print retourne toujours 1, ce qui
+        signifie qu'il peut être utilisé dans des expressions.
+->  echo peut accepter plusieurs paramètres (bien que cet usage soit rare).
+->  print n'accepte qu'un seul argument à la fois.
+->  echo est légèrement plus rapide que print.
