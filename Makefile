@@ -26,3 +26,9 @@ clean:
 
 restart: down all
 re: clean all
+
+push:
+	@git add .
+	@git commit -m "php"
+	@git remote set-url origin git@github.com:hatim-alouani/php-fp.git
+	@git push
