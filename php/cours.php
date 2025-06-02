@@ -1,11 +1,53 @@
 <?php
-setcookie("utilisateur", "Hatim", time() + (86400 * 30), "/", true, true);
-if (isset($__COOKIE["utilisateur"])){
-    echo "Hello, " . $__COOKIE["utilisateur"] . "<br>";
-    }
-else {
-    echo "not found <br>";
-    }
+
+
+function calculateur($a, $b, $operator){
+    if ($operator == '+')
+        return $a + $b;
+    else if ($operator == '-')
+        return $a - $b;
+    else if ($operator == '*')
+        return $a * $b;
+    else if ($operator == '/')
+        return $a / $b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// setcookie("utilisateur", "Hatim", time() + (86400 * 30), "/", true, true);
+// if (isset($__COOKIE["utilisateur"])){
+//     echo "Hello, " . $__COOKIE["utilisateur"] . "<br>";
+//     }
+// else {
+//     echo "not found <br>";
+//     }
 
     
         // echo "hello , today is " . date("d/m/y") ;
